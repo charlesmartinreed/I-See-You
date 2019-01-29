@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C515E2522000E2D0069FD54 /* TEST_DOC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TEST_DOC.md; sourceTree = "<group>"; };
 		8C817AD421FFF1BB0099BC7F /* I See You.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I See You.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C817AD721FFF1BB0099BC7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C817AD921FFF1BB0099BC7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 				8C817ADE21FFF1BD0099BC7F /* Assets.xcassets */,
 				8C817AE021FFF1BD0099BC7F /* LaunchScreen.storyboard */,
 				8C817AE321FFF1BD0099BC7F /* Info.plist */,
+				8C515E2522000E2D0069FD54 /* TEST_DOC.md */,
 			);
 			path = "I See You";
 			sourceTree = "<group>";
