@@ -10,7 +10,12 @@ import UIKit
 import Vision
 
 class ViewController: UIViewController {
+    
+    //MARK: ASSORTED NOTES
+    //let faceDetect = VNDetectFaceRectanglesRequest - detects the rough position of face in a photo
+    //let faceDetailsDetect = VNDetectFaceLandmarksRequest - detects facial aspects like eyes, nose. Recommended to handle this asynchronously and then push it back to the main thread.
 
+    //MARK:- Properties
     var imageView: UIImageView?
     
     override func viewDidLoad() {
@@ -21,21 +26,28 @@ class ViewController: UIViewController {
         imageView?.image = image
         
         guard let cgImage = image.cgImage else { return }
-        
-        //let faceDetect = VNDetectFaceRectanglesRequest - detects the rough position of face in a photo
-        //let faceDetailsDetect = VNDetectFaceLandmarksRequest - detects facial aspects like eyes, nose. Recommended to handle this asynchronously and then push it back to the main thread.
-        //TODO: refactor this into a seperate method, soon
+        examineFaceIn(image: cgImage)
+}
+    
+    override func loadView() {
+        //this image view is our view
+        imageView = UIImageView()
+        imageView?.contentMode = .scaleAspectFit
+        view = imageView
+    }
+    
+    func examineFaceIn(image: CGImage) {
         let request = VNDetectFaceLandmarksRequest { [weak self] request, error in
             if let observations = request.results as? [VNFaceObservation] {
                 DispatchQueue.main.async {
                     //render the result
                 }
-        } else {
+            } else {
                 print(error?.localizedDescription ?? "No observations available")
             }
         }
         //prepare to run request
-        let handler = VNImageRequestHandler(cgImage: cgImage)
+        let handler = VNImageRequestHandler(cgImage: image)
         
         DispatchQueue.global().async {
             
@@ -45,14 +57,6 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-
-    }
-    
-    override func loadView() {
-        //this image view is our view
-        imageView = UIImageView()
-        imageView?.contentMode = .scaleAspectFit
-        view = imageView
     }
 
 
