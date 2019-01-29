@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         //let faceDetect = VNDetectFaceRectanglesRequest - detects the rough position of face in a photo
         //let faceDetailsDetect = VNDetectFaceLandmarksRequest - detects facial aspects like eyes, nose. Recommended to handle this asynchronously and then push it back to the main thread.
-        
+        //TODO: refactor this into a seperate method, soon
         let request = VNDetectFaceLandmarksRequest { [weak self] request, error in
             if let observations = request.results as? [VNFaceObservation] {
                 DispatchQueue.main.async {
